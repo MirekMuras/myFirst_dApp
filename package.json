@@ -1,0 +1,19 @@
+{
+  "name": "myfirst_dapp",
+  "version": "1.0.0",
+  "description": "The Udemy course Ethereum and Solidity complete development (Summer 2018)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miekmuras/myFirst_dApp.git"
+  },
+  "author": "Miroslav Muras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miekmuras/myFirst_dApp/issues"
+  },
+  "homepage": "https://github.com/miekmuras/myFirst_dApp#readme"
+}
