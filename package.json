@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/miekmuras/myFirst_dApp/issues"
   },
-  "homepage": "https://github.com/miekmuras/myFirst_dApp#readme"
+  "homepage": "https://github.com/miekmuras/myFirst_dApp#readme",
+  "dependencies": {
+    "solc": "^0.4.24"
+  }
 }
