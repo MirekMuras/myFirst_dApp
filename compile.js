@@ -7,3 +7,7 @@ const source = fs.readdirSync(inboxPath, 'utf8');
 
 console.log(solc.compile(source, 1));
 
+
+
+
+
