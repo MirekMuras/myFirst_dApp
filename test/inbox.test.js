@@ -1,7 +1,8 @@
 const assert = require('assert');                   //check-test if one value is equeal to another
-const ganach = require('ganache-cli');
+const ganache = require("ganache-cli");
 const Web3 = require('web3');                       //constructor 
-const web3 = new Web3(ganache.provider());          //instance of Web3, provider is function to comunicate with web3 and ganache 
+const provider = ganache.provider();
+const web3 = new Web3(provider);          //instance of Web3, provider is function to comunicate with web3 and ganache 
 
 //testin framework with mocha test network , threee main functions
 //1-it function will run individual test, assertin [testing]
@@ -23,8 +24,10 @@ drive() {
 
 //test
 describe('Car', () => {
-    it('has a park function', () => {
+    it('testing car.park() function', () => {
+        //test setup with asssert logic
         const car = new Car();
-        assert.equal(car.park(), 'stopped');
+        //checking if the car.park() return the 'stopped' valu from the function
+        assert.equal(car.park(), 'stopped');        
     });
 });
