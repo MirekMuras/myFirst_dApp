@@ -62,28 +62,44 @@ describe('Car', () => {
 
     let accounts;
     let inbox;
+    const _InitialString = "A new copy of this contract was deploy by Web3.";
 
     // @dev : use web3 to access unlock account in Ganach Local Test Network
     beforeEach(async () => {
         // @dev : Get a list of all acounts
         accounts = await web3.eth.getAccounts();
 
-        // @dev: use onw of the account to deploy the contract
+        // @dev: use one of these accounts to deploy the contract
         inbox = await new web3.eth.Contract(JSON.parse(interface))              // interface from a Contract constructor
         .deploy({                                                               // deploy a new contract from Web3
             data: bytecode, 
-            arguments: ["A new copy of this contract was deploy by Web3."] 
+            arguments: [_InitialString] 
         })
         .send({                                                                 // 
             from: accounts[0], 
             gas: "1000000"
         })
 
+        //inbox.setProvider(provider);
+
     });
 
     describe('Inbox', () => {
         it('deploy a contract', () => {
-            console.log(inbox);
-            //assert.ok(inbox.options.address);
+            //console.log(inbox);
+
+            //@dev: check if the ../inbox/option/address deploy
+            assert.ok(inbox.options.address);
+        });
+
+        it('has a default message', async ()  => {
+            const message = await inbox.methods.message().call();
+            assert.equal(message, _InitialString);
+        })
+
+        it('can change the message', async () => {
+            await inbox.methods.setMessage('new message').send({ from: accounts[0] });
+            const message = await inbox.methods.message().call();
+            assert.equal(message, 'new message');
         });
 });
