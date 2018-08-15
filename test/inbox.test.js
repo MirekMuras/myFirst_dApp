@@ -97,9 +97,10 @@ describe('Car', () => {
             assert.equal(message, _InitialString);
         })
 
+        //@dev: modify data from __dirname/contracts/inbox.sol /setMessage function
         it('can change the message', async () => {
-            await inbox.methods.setMessage('new message').send({ from: accounts[0] });
-            const message = await inbox.methods.message().call();
+            await inbox.methods.setMessage('new message').send({ from: accounts[0] });  //retrive /modify message at account [0]
+            const message = await inbox.methods.message().call();                       //update message
             assert.equal(message, 'new message');
         });
 });
