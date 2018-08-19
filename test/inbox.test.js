@@ -1,9 +1,9 @@
-const assert = require('assert');                   //check-test/comparing  if one value is equeal to another
-const ganache = require("ganache-cli");
-const Web3 = require('web3');                       //constructor 
+const assert = require('assert');                           //check-test/comparing  if one value is equeal to another
+const ganache = require("ganache-cli");                     //Test provider : LocalTestNetwork 
+const Web3 = require('web3');                               //constructor , Web3 library has to have provider
 const provider = ganache.provider();
-const web3 = new Web3(provider);                    //instance of Web3, provider is function to comunicate with web3 and ganache 
-const { interface, bytecode } = require('../compile');
+const web3 = new Web3(provider);                            //instance of Web3, provider is function to comunicate with web3 and ganache 
+const { interface, bytecode } = require('../compile');      // Import two file from compile file (Interface = ABI ) ( bytecode = compiled contract)
 
 
 /* -------------- MOCHA testing  -------------------------------------------- */
@@ -92,6 +92,7 @@ describe('Car', () => {
             assert.ok(inbox.options.address);
         });
 
+        // cal() = read ONLY 
         it('has a default message', async ()  => {
             const message = await inbox.methods.message().call();
             assert.equal(message, _InitialString);
