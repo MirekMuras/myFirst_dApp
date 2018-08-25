@@ -106,16 +106,16 @@ describe('Lottery Contract', () => {
             value: web3.utils.toWei('1','ether') 
         });
 
-         const initialBalance = await web3.eth.getBalance(accounts[0]);      //Function which return amount in Wei that the given account controls
+         const initialBalance = await web3.eth.getBalance(accounts[0]);         //Function which return amount in Wei that the given account controls
         
-         await lottery.methods.pickWinner().send({                           //pick a winner 
+         await lottery.methods.pickWinner().send({                              //pick a winner 
              from: accounts[0]
          });
 
-         const finalBalance = await web3.eth.getBalance(accounts[0])        // final balance minus gas
+         const finalBalance = await web3.eth.getBalance(accounts[0])            // final balance minus gas
 
          const difference = finalBalance - initialBalance;
-         //console.log(finalBalance-initialBalance);                          //print what is a actual balance 
-         assert(difference > web3.utils.toWei('0.9', 'ether'));             //the balance should be higher than 0.9
+         //console.log(finalBalance-initialBalance);                            //print what is a actual balance 
+         assert(difference > web3.utils.toWei('0.9', 'ether'));                 //the balance should be higher than 0.9
         });
     });
