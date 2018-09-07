@@ -32,6 +32,7 @@ contract Lottery {
     function pickWinner() public restricted {
         uint index = random()%players.length;
         players[index].transfer(this.balance);  // transfer all to given index address
+        //lastWinner = players[index];          //tell who was the last winner
         players = new address[](0);             // creates a brand new empty dynamic array of type address
     }
     
